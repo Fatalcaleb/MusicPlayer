@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# WowAddOnStudio Solution File, Format Version 11.00
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E6E1D386-69D8-4755-9E61-0950293915FC}") = "MusicPlayer", "MusicPlayer.wowproj", "{76357C75-AA5B-42BE-BC4B-87E3F7D0E081}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Any CPU = Default|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76357C75-AA5B-42BE-BC4B-87E3F7D0E081}.Default|Any CPU.ActiveCfg = Default|Any CPU
+		{76357C75-AA5B-42BE-BC4B-87E3F7D0E081}.Default|Any CPU.Build.0 = Default|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {927BF425-C8EE-4187-84AE-986C085DF067}
+	EndGlobalSection
+EndGlobal

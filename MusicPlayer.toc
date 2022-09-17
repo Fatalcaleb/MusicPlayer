@@ -1,0 +1,7 @@
+## Title: MusicPlayer
+## Version: 0.0.1
+## Author: Fatalcaleb
+## Interface: 100000
+## Notes: Play music or sounds in the game
+
+MusicPlayer.lua
