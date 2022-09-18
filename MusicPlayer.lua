@@ -1,5 +1,3 @@
--- Author      : Fatalcaleb
--- Create Date : 9/17/2022 5:21:40 PM
 local soundType = {
   SOUND = 1,
   GAME_MUSIC = 2,
@@ -23,17 +21,11 @@ local sounds = {
       ["type"] = soundType.GAME_MUSIC
   },
   ["custom"] = {
-      ["sound"] = "Interface\AddOns\MusicPlayer\Sounds\custom.mp3",
+      ["sound"] = "Interface\\AddOns\\MusicPlayer\\Sounds\\custom.mp3",
       ["description"] = "Custom!",
       ["type"] = soundType.CUSTOM
   }
 }
-
-
-SLASH_SOUND1 = '/playsound'
-SLASH_STOPSOUND1 = '/stopsound'
-
-local customSoundId
 
 local function displaySoundList()
   print("------------------------")
@@ -44,45 +36,53 @@ local function displaySoundList()
   print("------------------------")
 end
 
+SLASH_SOUND1 = '/playsound'
+SLASH_STOPSOUND1 = '/stopsound'
+
+local customSoundId;
+
 local function stopSoundHandler()
   StopMusic()
-
-  --TODO not stopping custom sound (because of the Patch?)
+ --TODO not stopping custom sound (because of the Patch?)
   if (customSoundId ~= nil) then
-   print('here')
    StopSound(customSoundId)
    customSoundId = nil
   end
 end
 
+
 local function playTrack(track)
+    print(track.description)
+
   if (track.type == soundType.GAME_MUSIC) then
     PlayMusic(track.sound)
+
     print("To stop the music, type /stopsound")
   elseif (track.type == soundType.SOUND) then
     PlaySound(track.sound)
   elseif (track.type == soundType.CUSTOM) then
     stopSoundHandler()
-    customSoundId = PlaySoundFile(track.sound)
+    customSoundId = select(2, PlaySoundFile(track.sound))
   end
 end
 
 local function playSoundHandler(trackId)
-  if (string.len(trackId) > 0) then
-    local isSoundExists = sounds[trackId] ~= nil
-    if (isSoundExists) then
+    if(string.len(trackId) > 0) then
+        local matchesKnownTrack = sounds[trackId] ~= nil
+
+    if (matchesKnownTrack) then
       local track = sounds[trackId]
+
       playTrack(track)
     else
       displaySoundList()
+
       print(trackId .. " - Doesn't match a known track.")
     end
   else
     displaySoundList()
   end
 end
-
-
 
 SlashCmdList['SOUND'] = playSoundHandler
 SlashCmdList['STOPSOUND'] = stopSoundHandler
