@@ -48,11 +48,11 @@ local function stopSoundHandler()
   StopMusic()
 
   --TODO not stopping custom sound (because of the Patch?)
-  --if (customSoundId ~= nil) then
-    --print('here')
-    --StopSound(customSoundId)
-    --customSoundId = nil
-  --end
+  if (customSoundId ~= nil) then
+   print('here')
+   StopSound(customSoundId)
+   customSoundId = nil
+  end
 end
 
 local function playTrack(track)
